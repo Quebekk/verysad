@@ -1,0 +1,42 @@
+with open('p022_names.txt') as file_object:
+	contents=file_object.read()
+	b=len(contents)
+	newstr = contents.replace('"',"")
+	arr=[]
+	summi=[]
+	otvet=0
+	let=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+	x=""
+	h=1
+	y=""
+	l=1	
+	summma=0
+	for i in newstr:
+		if i!=",":			
+			x=x+i
+		else:
+			arr.append(x)
+			x=""
+	b=sorted(arr)
+	b=str(b)
+	for i in b:													    	
+		if i!=",":		
+			for g in let:
+				if g==i:
+					summma=summma+h
+				else:
+					h=h+1
+			h=1
+		else:
+			otvet=otvet+summma*l
+			l=l+1
+			summi.append(summma)
+			summma=0
+	newstr = b.replace("[","")
+	newstr1 = newstr.replace("]","")
+
+f=('name.txt')
+with open(f,'w') as file_object:
+	 file_object.write(newstr1+'\n'+str(otvet))
+	
+		
